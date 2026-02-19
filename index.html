@@ -3,247 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lancer Press | The Location Folio</title>
+    <title>Lancer Press | Prime Real Estate Cartography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* --- 1. THE CHASSIS (Typography & Reset) --- */
-        :root {
-            /* Dark Slate Blue to match logo background */
-            --midnight: #2C3E50; 
-            --onyx: #111111;
-            --paper: #f9f9f9;
-            --gold: #C5A065; 
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: var(--paper);
-            color: var(--onyx);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- 2. THE HEADER (Brand Identity) --- */
-        header {
-            background-color: var(--midnight);
-            padding: 25px 0;
-            border-bottom: 4px solid var(--gold);
-        }
-
-        .header-inner {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            
-            /* Aligns everything to the LEFT */
-            display: flex;
-            justify-content: flex-start;
-            align-items: center; 
-        }
-
-        .logo {
-            height: 60px;
-            width: auto;
-            display: block;
-        }
-
-        .slogan {
-            color: var(--gold);
-            
-            /* Matches the H2 ("The White Glove Service") style */
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 0.75rem; 
-            text-transform: uppercase;
-            letter-spacing: 2.5px; /* Wide tracking for technical feel */
-            font-weight: 700;
-            
-            /* Positioning */
-            margin-left: 25px; /* Space between logo and text */
-            margin-top: 4px;   /* Visual alignment correction */
-        }
-
-        /* --- 3. THE LAYOUT (Menu Style) --- */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        section {
-            margin-bottom: 100px;
-        }
-
-        h1 {
-            font-family: "Georgia", serif;
-            font-weight: 300;
-            font-size: 3.2rem;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            color: var(--midnight);
-        }
-
-        h2 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
-            color: var(--gold);
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-        }
-
-        p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            color: #444;
-            max-width: 680px;
-            margin-bottom: 25px;
-        }
-
-        /* --- 4. THE PRICING (The "Bill") --- */
-        .menu-card {
-            background-color: #fff;
-            border: 1px solid #eee;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-        }
-
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 10px;
-        }
-
-        .menu-title {
-            font-family: "Georgia", serif;
-            font-size: 1.5rem;
-            color: var(--midnight);
-        }
-
-        .price {
-            font-family: "Georgia", serif;
-            font-size: 1.5rem;
-            color: var(--midnight);
-        }
-
-        .menu-desc {
-            font-size: 0.95rem;
-            color: #777;
-            font-style: italic;
-        }
-
-        /* --- 5. THE FOOTER (Compliance) --- */
-        footer {
-            background-color: #e5e5e5;
-            padding: 60px 0;
-            margin-top: 100px;
-            font-size: 0.85rem;
-            color: #666;
-            border-top: 1px solid #ccc;
-        }
-
-        .footer-grid {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        /* Mobile Optimization */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            .footer-grid { grid-template-columns: 1fr; }
-            
-            /* Stack logo and slogan vertically on mobile */
-            .header-inner { flex-direction: column; align-items: flex-start; }
-            .slogan { margin-left: 0; margin-top: 15px; }
-        }
+        /* Loading Inter (Sans) and Playfair Display (Serif) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap');
+        
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* THE THEME COLORS */
+        .bg-midnight { background-color: #2C3E50; }
+        .text-midnight { color: #2C3E50; }
+        
+        .text-gold { color: #C5A065; }
+        .border-gold { border-color: #C5A065; }
+        .bg-gold { background-color: #C5A065; }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body>
+<body class="bg-midnight text-white font-sans antialiased flex flex-col min-h-screen">
 
-    <header>
-        <div class="header-inner">
-            <img src="logo.png" alt="Lancer Press Logo" class="logo">
+    <nav class="flex items-center justify-center px-8 py-10">
+        <span class="text-[10px] md:text-xs font-sans tracking-[0.4em] uppercase text-gray-400 font-light text-center">
+            Bespoke Real Estate Cartography
+        </span>
+    </nav>
+
+    <header class="container mx-auto px-6 py-12 md:py-20 text-center flex-grow flex flex-col items-center justify-center">
+        
+        <div class="relative w-36 h-36 flex items-center justify-center mb-16 select-none">
             
-            <div class="slogan">Precision for Prime Property</div>
+            <div class="absolute top-0 left-0 w-full h-full border border-gold opacity-30"></div>
+
+            <div class="absolute top-2 left-2 w-full h-full border-2 border-gold bg-midnight flex flex-col items-center justify-center shadow-2xl">
+                
+                <div class="text-center mt-1">
+                    <span class="block text-5xl font-serif text-gold tracking-tighter leading-none">
+                        L<span class="opacity-50 px-2 font-thin relative top-[-2px]">|</span>P
+                    </span>
+                    
+                    <span class="block text-[9px] text-gold uppercase tracking-[0.3em] mt-3 opacity-90 font-semibold">
+                        Lancer Press
+                    </span>
+
+                    <span class="block text-[7px] text-gold uppercase tracking-[0.4em] mt-1 opacity-70">
+                        London
+                    </span>
+                </div>
+
+            </div>
         </div>
+
+        <h1 class="text-5xl md:text-7xl font-serif font-medium leading-tight mb-10 text-white">
+            Cartographic Folios<br>
+            for <span class="text-gold">Prime Assets</span>.
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-400 max-w-xl mx-auto mb-16 font-light leading-relaxed tracking-wide">
+            Precision site plans and architectural context maps.<br>
+            Designed strictly for the Super-Prime market.
+        </p>
+
+        <div class="flex justify-center items-center mt-6">
+            <a href="#details" class="text-gold tracking-[0.2em] uppercase text-sm hover:text-white transition-colors duration-500 flex flex-col items-center gap-2 font-medium">
+                <span>View The Folio</span>
+                <span class="text-3xl font-light animate-bounce mt-2">↓</span>
+            </a>
+        </div>
+
     </header>
 
-    <div class="container">
-        
-        <section>
-            <h1>Precision Engineering <br>for the Prime Market.</h1>
-            <p>
-                A multi-million pound listing is a high-performance vehicle. It demands a chassis to match. 
-                We do not produce "maps" in the traditional sense. We engineer <strong>location assets</strong> with the same restraint and technical precision found in automotive design.
-            </p>
-            <p>
-                Sharp lines. Infinite vector resolution. Zero clutter. 
-                Like a grand tourer, our work is designed to look effortless while concealing a powerful engine of verified cadastral data underneath.
-            </p>
-        </section>
+    <section id="details" class="bg-white text-midnight py-24">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                
+                <div>
+                    <h2 class="text-4xl font-serif mb-8 text-midnight">The Art of Ownership.</h2>
+                    <p class="text-gray-500 mb-6 leading-relaxed font-light text-lg">
+                        A prime asset requires presentation that matches its value. 
+                        Standard mapping data is designed for navigation; it is noisy, cluttered, and often outdated.
+                    </p>
+                    <p class="text-gray-500 mb-10 leading-relaxed font-light text-lg">
+                        We produce <strong>Cartographic Folios</strong>: curated, architectural representations of land and location. We highlight boundaries, obscure the irrelevant, and deliver a visual asset that implies permanence.
+                    </p>
 
-        <section>
-            <h2>The White Glove Service</h2>
-            <p>
-                <strong>We operate like a private kitchen.</strong> There is no software to learn. No "drag-and-drop" frustration.
-            </p>
-            <p>
-                You simply provide the address, and we take care of the rest. 
-                Like a fine dining experience, every element is plated for you by experts. 
-                From the color-matching of local parks to your brand palette, to the manual verification of garden boundaries—we serve the finished product, ready for your brochure.
-            </p>
-        </section>
+                    <div class="border-t border-gray-200 pt-8">
+                        <div class="grid grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-gold mb-2">Format</h4>
+                                <p class="text-sm text-gray-600">Vector PDF / 300 DPI</p>
+                            </div>
+                            <div>
+                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-gold mb-2">Usage</h4>
+                                <p class="text-sm text-gray-600">Brochure & Hoarding</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col gap-6 relative">
+                    
+                    <div class="bg-midnight border border-gray-200 shadow-xl relative overflow-hidden group">
+                        <div class="absolute inset-0 border-[0.5px] border-gold opacity-20 m-2 z-10 pointer-events-none"></div>
+                        <img src="Agent_1_2500.png" alt="High-Fidelity Site Plan - Chelsea Barracks" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105">
+                        
+                        <div class="absolute bottom-4 left-4 z-20 bg-midnight bg-opacity-90 px-4 py-2 border border-gold border-opacity-30 backdrop-blur-sm">
+                            <span class="block text-gold text-[8px] tracking-[0.3em] uppercase mb-1">Figure 01</span>
+                            <p class="text-white font-serif italic text-sm">The Chelsea Masterplan</p>
+                            <p class="text-gray-400 text-[10px] mt-0.5 font-light tracking-wider">1:2500 Scale / Dark Gold Aesthetic</p>
+                        </div>
+                    </div>
 
-        <section>
-            <h2>The Folio Selection</h2>
-            <div class="menu-card">
-                <div class="menu-item">
-                    <span class="menu-title">The Complete Folio Suite</span>
-                    <span class="price">£250</span>
+                    <div class="bg-gray-50 border border-gray-200 shadow-md relative overflow-hidden group">
+                        <img src="Agent_1_150000.png" alt="Macro Regional Connectivity Map - London" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105 opacity-90 mix-blend-multiply">
+                        
+                        <div class="absolute bottom-4 left-4 z-20 bg-white bg-opacity-95 px-4 py-2 border border-gray-300 backdrop-blur-sm">
+                            <span class="block text-midnight text-[8px] tracking-[0.3em] uppercase mb-1">Figure 02</span>
+                            <p class="text-midnight font-serif italic text-sm">Regional Connectivity</p>
+                            <p class="text-gray-500 text-[10px] mt-0.5 font-light tracking-wider">1:150,000 Scale / Vellum Basemap</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex flex-col items-start">
+                        <div class="relative group inline-block">
+                            <div class="absolute top-[-5px] left-[-5px] w-full h-full border border-gold opacity-30 transition-all duration-500 group-hover:top-[-8px] group-hover:left-[-8px]"></div>
+                            <a href="mailto:studio@lancerpress.com" class="relative z-10 block bg-midnight border border-gold px-14 py-4 text-gold hover:text-white hover:bg-gold transition-colors duration-500 uppercase tracking-[0.2em] text-[12px] font-medium shadow-lg text-center cursor-pointer">
+                                Enquire
+                            </a>
+                        </div>
+                        <p class="text-gray-400 text-[10px] mt-4 tracking-widest uppercase">Direct: studio@lancerpress.com</p>
+                    </div>
+
                 </div>
-                <div class="menu-desc">
-                    One flat project fee. Includes Vector PDF (Print), Retina PNG (Web), and Vertical 9:16 Crop (Social).
-                </div>
-                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                <p style="font-size: 0.9rem; margin: 0;">
-                    <em>*Service includes 48-hour turnaround and full IP transfer.</em>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-midnight py-20 border-t border-gray-700">
+        <div class="container mx-auto px-6 text-center">
+            
+            <p class="text-white text-xs font-serif tracking-[0.2em] mb-8 uppercase opacity-80">Lancer Press</p>
+            
+            <div class="text-gray-300 text-xs leading-relaxed font-light tracking-wide max-w-2xl mx-auto">
+                <p class="mb-2">Lancer Press Ltd is a private limited company registered in England and Wales.</p>
+                <p class="mb-6">Company Number: 16953195</p>
+                
+                <p class="normal-case text-gray-400 border-t border-gray-700 pt-6 mt-6 inline-block px-10">
+                    Registered Office: 86-90 Paul Street, London, EC2A 4NE, United Kingdom.
                 </p>
             </div>
-        </section>
 
-        <section>
-            <h2>Reservations</h2>
-            <p>
-                We currently accept commissions from select agency partners. <br>
-                For availability: 
-                <strong><a href="mailto:andreiulanovonline@gmail.com" style="color: inherit; text-decoration: none; border-bottom: 2px solid var(--gold);">Request Availability</a></strong>
+            <p class="text-gray-500 text-[10px] mt-16">
+                &copy; 2026 Lancer Press Ltd. All Rights Reserved.
             </p>
-        </section>
-
-    </div>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <strong style="color: #333;">Lancer Press Ltd</strong><br>
-                Registered in England and Wales.<br>
-                Company Number: <strong>16953195</strong><br>
-                Registered Office: <strong>86-90 Paul Street, London EC2A 4NE</strong>
-            </div>
-
-            <div>
-                <strong style="color: #333;">Privacy & Standards</strong><br>
-                Lancer Press provides B2B services exclusively.<br>
-                Data is processed in accordance with the UK Data Protection Act 2018.<br>
-                &copy; 2026 Lancer Press Ltd.
-            </div>
         </div>
     </footer>
 
