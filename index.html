@@ -3,163 +3,460 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lancer Press | Prime Real Estate Cartography</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Lancer Press | The Master Asset Library</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
     <style>
-        /* Loading Inter (Sans) and Playfair Display (Serif) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap');
+        :root {
+            /* Editorial Color Palette */
+            --paper: #f4f2e6; 
+            --ink: #181818; 
+            --ink-light: #4a4a4a;
+            --hairline: #d0c9bb; 
+            
+            /* Typography */
+            --font-headline: 'Playfair Display', Didot, 'Times New Roman', serif;
+            --font-body: 'Source Serif 4', Georgia, serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        }
         
-        .font-sans { font-family: 'Inter', sans-serif; }
-        .font-serif { font-family: 'Playfair Display', serif; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- THE MASTHEAD (NEWSPAPER HEADER) --- */
+        .masthead {
+            width: 100%;
+            max-width: 1100px;
+            padding: 40px 20px 20px 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
         
-        /* THE THEME COLORS */
-        .bg-midnight { background-color: #2C3E50; }
-        .text-midnight { color: #2C3E50; }
+        /* The Brand Lockup (Logo + Title side-by-side) */
+        .brand-lockup {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* The Publisher's Seal (L|P Monogram) - Top Right Offset */
+        .publisher-seal {
+            position: relative;
+            width: 3.5rem; 
+            height: 3.5rem; 
+            user-select: none;
+            flex-shrink: 0;
+        }
+        .seal-bg {
+            position: absolute;
+            top: 0; right: 0;
+            width: calc(100% - 5px); height: calc(100% - 5px);
+            border: 1px solid var(--ink);
+            opacity: 0.2; 
+        }
+        .seal-main {
+            position: absolute;
+            bottom: 0; left: 0;
+            width: calc(100% - 5px); height: calc(100% - 5px);
+            background-color: transparent; 
+            border: 1.5px solid var(--ink); 
+            display: flex; align-items: center; justify-content: center;
+        }
+        .seal-text {
+            font-family: var(--font-headline);
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--ink); 
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+        .seal-pipe { 
+            opacity: 0.3; 
+            font-weight: 400; 
+            padding: 0 2px; 
+            position: relative; 
+            top: -2px; 
+        }
+
+        .masthead h1 {
+            font-family: var(--font-headline);
+            font-weight: 800;
+            font-size: 3.5rem; 
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 0 20px; 
+        }
+
+        /* The Metadata Bars */
+        .meta-bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--ink);
+            border-bottom: 3px solid var(--ink); 
+            padding: 8px 0;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+        .meta-bar span { display: block; }
+
+        /* --- THE LEAD STORY (HERO) --- */
+        .lead-story {
+            width: 100%;
+            max-width: 1100px;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        .lead-story h2 {
+            font-family: var(--font-headline);
+            font-size: 2.8rem;
+            font-weight: 400;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+            text-align: left;
+        }
+        .lead-story p {
+            font-size: 1.25rem;
+            color: var(--ink-light);
+            margin: 0 0 40px 0;
+            text-align: justify; 
+            text-justify: inter-word;
+        }
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--ink);
+            display: block;
+        }
+        .image-caption {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            color: var(--ink-light);
+            text-align: right;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- THE EDITORIAL GRID (CONTENT) --- */
+        .broadsheet-grid {
+            max-width: 1100px;
+            width: 100%;
+            padding: 0 20px 80px 20px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
         
-        .text-gold { color: #C5A065; }
-        .border-gold { border-color: #C5A065; }
-        .bg-gold { background-color: #C5A065; }
-        
-        /* Smooth scrolling */
-        html { scroll-behavior: smooth; }
+.section-break {
+    grid-column: 1 / -1;
+    text-align: left;
+    font-family: var(--font-headline);
+    font-size: 2.8rem;       /* Matches "Beyond Cartography" */
+    font-weight: 400;        /* Matches "Beyond Cartography" */
+    line-height: 1.2;
+    border-top: 3px solid var(--ink); /* The thick structural line */
+    padding-top: 20px;       /* Breathing room inside the line */
+    margin: 10px 0 10px 0;   /* Distance from the previous section */
+}
+
+        .article {
+            display: flex;
+            flex-direction: column;
+        }
+        .article-kicker {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--ink-light);
+            margin-bottom: 10px;
+            display: block;
+            border-top: 2px solid var(--ink);
+            padding-top: 10px;
+        }
+        .article-title {
+            font-family: var(--font-headline);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+        }
+        .article-body {
+            font-size: 1.05rem;
+            color: var(--ink-light);
+            margin: 0 0 10px 0;
+            text-align: justify; 
+        }
+        .article-img {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--hairline);
+            margin-top: auto;
+        }
+.frameless {
+    border: none !important;
+}
+
+        .article-full {
+            grid-column: 1 / -1;
+            padding-top: 10px;
+        }
+        .diptych {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* --- STUDIO AVAILABILITY --- */
+        .studio-availability {
+            width: 100%;
+            max-width: 1100px;
+            border-top: 4px solid var(--ink);
+            border-bottom: 1px solid var(--ink);
+            padding: 20px 20px;
+            box-sizing: border-box;
+        }
+        .availability-content {
+            width: 100%;
+        }
+.studio-availability h2 {
+            font-family: var(--font-headline);
+            font-size: 2.8rem;  /* Matches "The Complete Asset Suite" */
+            font-weight: 400;   /* Editorial weight */
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+        .studio-availability p {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--ink-light);
+            margin: 0 0 10px 0;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--ink);
+            color: var(--paper);
+            font-family: var(--font-sans);
+            padding: 15px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #333333;
+        }
+
+        /* --- THE COLOPHON (FOOTER) --- */
+        .colophon {
+            width: 100%;
+            max-width: 1100px;
+            padding: 30px 20px 60px 20px;
+            box-sizing: border-box;
+        }
+        .colophon-grid {
+            display: grid;
+            /* Changed ratio to give the right column (legal text) more horizontal space */
+            grid-template-columns: 1fr 1.2fr 2fr; 
+            gap: 20px;
+            border-top: 1px solid var(--hairline);
+            padding-top: 20px;
+        }
+        .colophon-brand {
+            display: flex;
+            align-items: center;
+        }
+        .colophon-seal {
+            font-family: var(--font-headline);
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-right: 10px;
+        }
+        .colophon-name {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        .colophon p {
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.5;
+            margin: 0;
+        }
+        .colophon-details { text-align: left; }
+        .colophon-legal { text-align: right; }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 768px) {
+            .publisher-seal { width: 2.5rem; height: 2.5rem; }
+            .seal-text { font-size: 16px; }
+            .masthead h1 { font-size: 2.5rem; margin-left: 15px; }
+            .meta-bar { font-size: 0.6rem; }
+            .meta-bar span:nth-child(2) { display: none; }
+            .broadsheet-grid { grid-template-columns: 1fr; gap: 40px; }
+            .diptych { grid-template-columns: 1fr; }
+            .lead-story h2 { font-size: 2rem; }
+            .colophon-grid { grid-template-columns: 1fr; text-align: center; gap: 15px; }
+            .colophon-brand { justify-content: center; }
+            .colophon-details, .colophon-legal { text-align: center; }
+            .studio-availability p { text-align: left; } /* Reset justify on small screens for readability */
+        }
     </style>
 </head>
-<body class="bg-midnight text-white font-sans antialiased flex flex-col min-h-screen">
+<body>
 
-    <nav class="flex items-center justify-center px-8 py-10">
-        <span class="text-[10px] md:text-xs font-sans tracking-[0.4em] uppercase text-gray-400 font-light text-center">
-            Bespoke Real Estate Cartography
-        </span>
-    </nav>
-
-    <header class="container mx-auto px-6 py-12 md:py-20 text-center flex-grow flex flex-col items-center justify-center">
-        
-        <div class="relative w-36 h-36 flex items-center justify-center mb-16 select-none">
-            
-            <div class="absolute top-0 left-0 w-full h-full border border-gold opacity-30"></div>
-
-            <div class="absolute top-2 left-2 w-full h-full border-2 border-gold bg-midnight flex flex-col items-center justify-center shadow-2xl">
-                
-                <div class="text-center mt-1">
-                    <span class="block text-5xl font-serif text-gold tracking-tighter leading-none">
-                        L<span class="opacity-50 px-2 font-thin relative top-[-2px]">|</span>P
-                    </span>
-                    
-                    <span class="block text-[9px] text-gold uppercase tracking-[0.3em] mt-3 opacity-90 font-semibold">
-                        Lancer Press
-                    </span>
-
-                    <span class="block text-[7px] text-gold uppercase tracking-[0.4em] mt-1 opacity-70">
-                        London
-                    </span>
+    <header class="masthead">
+        <div class="brand-lockup">
+            <div class="publisher-seal">
+                <div class="seal-bg"></div>
+                <div class="seal-main">
+                    <span class="seal-text">L<span class="seal-pipe">|</span>P</span>
                 </div>
-
             </div>
+            <h1>Lancer Press</h1>
         </div>
-
-        <h1 class="text-5xl md:text-7xl font-serif font-medium leading-tight mb-10 text-white">
-            Cartographic Folios<br>
-            for <span class="text-gold">Prime Assets</span>.
-        </h1>
-
-        <p class="text-lg md:text-xl text-gray-400 max-w-xl mx-auto mb-16 font-light leading-relaxed tracking-wide">
-            Precision site plans and architectural context maps.<br>
-            Designed strictly for the Super-Prime market.
-        </p>
-
-        <div class="flex justify-center items-center mt-6">
-            <a href="#details" class="text-gold tracking-[0.2em] uppercase text-sm hover:text-white transition-colors duration-500 flex flex-col items-center gap-2 font-medium">
-                <span>View The Folio</span>
-                <span class="text-3xl font-light animate-bounce mt-2">↓</span>
-            </a>
+        
+        <div class="meta-bar">
+            <span>The Master Asset Library</span>
+            <span>Bespoke Cartography for Ultra-Prime Real Estate</span>
+            <span>London & Belgrade</span>
         </div>
-
     </header>
 
-    <section id="details" class="bg-white text-midnight py-24">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="grid md:grid-cols-2 gap-20 items-center">
-                
-                <div>
-                    <h2 class="text-4xl font-serif mb-8 text-midnight">The Art of Ownership.</h2>
-                    <p class="text-gray-500 mb-6 leading-relaxed font-light text-lg">
-                        A prime asset requires presentation that matches its value. 
-                        Standard mapping data is designed for navigation; it is noisy, cluttered, and often outdated.
-                    </p>
-                    <p class="text-gray-500 mb-10 leading-relaxed font-light text-lg">
-                        We produce <strong>Cartographic Folios</strong>: curated, architectural representations of land and location. We highlight boundaries, obscure the irrelevant, and deliver a visual asset that implies permanence.
-                    </p>
+    <section class="lead-story">
+        <h2>Beyond Cartography</h2>
+        <p>We engineer native 2.5D vector masterplans tailored for the world's most exclusive property developments. Powered by a proprietary hybrid cartography engine, we transform raw spatial data into FOGRA47-calibrated architectural assets. We bypass standard design software, combining the bespoke precision of an artisanal design studio with the raw mathematical processing power of C++ code.</p>
+        
+        <figure style="margin: 0;">
+            <img src="image1.png" alt="Hero Masterplan" class="hero-img">
+            <figcaption class="image-caption">Fig 1. — The Edge-to-Edge Masterplan Extraction</figcaption>
+        </figure>
+    </section>
 
-                    <div class="border-t border-gray-200 pt-8">
-                        <div class="grid grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-gold mb-2">Format</h4>
-                                <p class="text-sm text-gray-600">Vector PDF / 300 DPI</p>
-                            </div>
-                            <div>
-                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-gold mb-2">Usage</h4>
-                                <p class="text-sm text-gray-600">Brochure & Hoarding</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col gap-6 relative">
-                    
-                    <div class="bg-midnight border border-gray-200 shadow-xl relative overflow-hidden group">
-                        <div class="absolute inset-0 border-[0.5px] border-gold opacity-20 m-2 z-10 pointer-events-none"></div>
-                        <img src="Agent_1_2500.png" alt="High-Fidelity Site Plan - Chelsea Barracks" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105">
-                        
-                        <div class="absolute bottom-4 left-4 z-20 bg-midnight bg-opacity-90 px-4 py-2 border border-gold border-opacity-30 backdrop-blur-sm">
-                            <span class="block text-gold text-[8px] tracking-[0.3em] uppercase mb-1">Figure 01</span>
-                            <p class="text-white font-serif italic text-sm">The Chelsea Masterplan</p>
-                            <p class="text-gray-400 text-[10px] mt-0.5 font-light tracking-wider">1:2500 Scale / Dark Gold Aesthetic</p>
-                        </div>
-                    </div>
+    <main class="broadsheet-grid">
+        
+        <div class="section-break">The Four-Tier Architecture</div>
 
-                    <div class="bg-gray-50 border border-gray-200 shadow-md relative overflow-hidden group">
-                        <img src="Agent_1_150000.png" alt="Macro Regional Connectivity Map - London" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105 opacity-90 mix-blend-multiply">
-                        
-                        <div class="absolute bottom-4 left-4 z-20 bg-white bg-opacity-95 px-4 py-2 border border-gray-300 backdrop-blur-sm">
-                            <span class="block text-midnight text-[8px] tracking-[0.3em] uppercase mb-1">Figure 02</span>
-                            <p class="text-midnight font-serif italic text-sm">Regional Connectivity</p>
-                            <p class="text-gray-500 text-[10px] mt-0.5 font-light tracking-wider">1:150,000 Scale / Vellum Basemap</p>
-                        </div>
-                    </div>
+        <article class="article">
+            <span class="article-kicker">Level 1 // The Hero Asset</span>
+            <h3 class="article-title">Bespoke 2.5D Geometry</h3>
+            <p class="article-body">Your development commands the absolute center of the canvas. We manually trace the specific lit and shadowed architectural facets of your building in axonometric projection, forcing it to physically rise off the page.</p>
+            <img src="image2.png" alt="Level 1 Geometry" class="article-img">
+        </article>
 
-                    <div class="mt-8 flex flex-col items-start">
-                        <div class="relative group inline-block">
-                            <div class="absolute top-[-5px] left-[-5px] w-full h-full border border-gold opacity-30 transition-all duration-500 group-hover:top-[-8px] group-hover:left-[-8px]"></div>
-                            <a href="mailto:studio@lancerpress.com" class="relative z-10 block bg-midnight border border-gold px-14 py-4 text-gold hover:text-white hover:bg-gold transition-colors duration-500 uppercase tracking-[0.2em] text-[12px] font-medium shadow-lg text-center cursor-pointer">
-                                Enquire
-                            </a>
-                        </div>
-                        <p class="text-gray-400 text-[10px] mt-4 tracking-widest uppercase">Direct: studio@lancerpress.com</p>
-                    </div>
+        <article class="article">
+            <span class="article-kicker">Level 2 // The Plinth</span>
+            <h3 class="article-title">Custom 2D Context</h3>
+            <p class="article-body">A hero asset cannot float in empty space. The immediate accompanying structures, secondary phases, and complex site footprints are custom-traced and brand-calibrated to frame your property flawlessly within its local grid.</p>
+            <img src="image3.png" alt="Level 2 Plinth" class="article-img">
+        </article>
 
-                </div>
+        <article class="article">
+            <span class="article-kicker">Level 3 // The Anchors</span>
+            <h3 class="article-title">Curated Targets</h3>
+            <p class="article-body">We manually highlight the neighborhood features that drive your property's valuation. Top-tier schools, heritage sites, and private wealth nodes are custom-drawn as heavy 2D geometry to visually prove the area's absolute prestige.</p>
+            <img src="image4.png" alt="Level 3 Anchors" class="article-img">
+        </article>
 
+        <article class="article">
+            <span class="article-kicker">Level 4 // The Canvas</span>
+            <h3 class="article-title">Automated Purge</h3>
+            <p class="article-body">Standard maps are cluttered with municipal noise. Our proprietary C++ engine ruthlessly purges surface parking and low-value zoning, generating a beautifully muted, flat 2D architectural background for your Hero Asset.</p>
+            <img src="image5.png" alt="Level 4 Canvas" class="article-img">
+        </article>
+
+<div class="section-break">The Complete Asset Suite</div>
+
+        <article class="article article-full">
+            <span class="article-kicker">The Configuration</span>
+            <h3 class="article-title">Studio Editions</h3>
+            <p class="article-body" style="max-width: 100%;">Configuring your library is like specifying the paint and trim of a luxury vehicle. Because the map is built entirely in native CMYK mathematics, we instantly recalibrate the thematic colorways across all four tiers to match any marketing collateral or corporate brand guideline.</p>
+            
+            <div class="diptych">
+                <figure style="margin: 0;">
+                    <img src="image6.png" alt="Light Edition" class="article-img">
+                    <figcaption class="image-caption">The Print Master (Vellum)</figcaption>
+                </figure>
+                <figure style="margin: 0;">
+                    <img src="image7.png" alt="Dark Edition" class="article-img">
+                    <figcaption class="image-caption">The Digital Display (Ember)</figcaption>
+                </figure>
+            </div>
+        </article>
+
+        <article class="article">
+            <span class="article-kicker">The Delivery</span>
+            <h3 class="article-title">Asset Suite</h3>
+            <p class="article-body">You receive a fully loaded, pre-press asset library. Every Edition is delivered across a spectrum of architectural scales, provided in both Fully Labeled and Clean states. All files are FOGRA47-calibrated for heavy uncoated print.</p>
+            <img src="image8.png" alt="Delivery Assets" class="article-img frameless">
+        </article>
+
+        <article class="article">
+            <span class="article-kicker">The Engine</span>
+            <h3 class="article-title">Hybrid Architecture</h3>
+            <p class="article-body">We bypass standard design software, combining the bespoke precision of an artisanal design studio with the raw mathematical processing power of custom C++ engineering to extract perfect vectors from public spatial data.</p>
+            <img src="image9.png" alt="C++ Engine" class="article-img frameless">
+        </article>
+
+    </main>
+
+    <section class="studio-availability">
+        <div class="availability-content">
+            <h2>Studio Availability</h2>
+            <p>To maintain absolute mathematical and architectural rigor, Lancer Press strictly limits production to <strong>four private masterplans</strong> per calendar month.</p>
+<div style="text-align: right; margin-top: 20px;">
+                <a href="mailto:studio@lancerpress.com" class="cta-button">Submit an Enquiry</a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-midnight py-20 border-t border-gray-700">
-        <div class="container mx-auto px-6 text-center">
-            
-            <p class="text-white text-xs font-serif tracking-[0.2em] mb-8 uppercase opacity-80">Lancer Press</p>
-            
-            <div class="text-gray-300 text-xs leading-relaxed font-light tracking-wide max-w-2xl mx-auto">
-                <p class="mb-2">Lancer Press Ltd is a private limited company registered in England and Wales.</p>
-                <p class="mb-6">Company Number: 16953195</p>
-                
-                <p class="normal-case text-gray-400 border-t border-gray-700 pt-6 mt-6 inline-block px-10">
-                    Registered Office: 86-90 Paul Street, London, EC2A 4NE, United Kingdom.
-                </p>
+    <footer class="colophon">
+        <div class="colophon-grid">
+            <div class="colophon-brand">
+                <span class="colophon-seal">L|P</span>
+                <span class="colophon-name">LANCER PRESS LTD</span>
             </div>
-
-            <p class="text-gray-500 text-[10px] mt-16">
-                &copy; 2026 Lancer Press Ltd. All Rights Reserved.
-            </p>
+            <div class="colophon-details">
+                <p>Bespoke computational cartography<br>
+                and white-glove rendering service<br>
+                for the prime property sector.</p>
+            </div>
+            <div class="colophon-legal">
+                <p>Registered in England & Wales (No. 16953195).<br>
+                86-90 Paul Street, London, EC2A 4NE, United Kingdom.<br>
+                Professional Indemnity underwritten up to £1,000,000.</p>
+            </div>
         </div>
     </footer>
 
