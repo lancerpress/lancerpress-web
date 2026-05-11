@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lancer Press | Bridging Cartography and Architecture</title>
+    <title>Lancer Press | Spatial Masterplates for Prime Real Estate & BIDs</title>
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.lancerpress.com/">
-    <meta property="og:title" content="Lancer Press | Bridging Cartography and Architecture">
-    <meta property="og:description" content="A proprietary spatial engine automating upstream CAD context and downstream 2.5D map libraries.">
-    <meta property="og:image" content="https://www.lancerpress.com/image1.png">
+    <meta property="og:title" content="Lancer Press | Spatial Masterplates for Prime Real Estate & BIDs">
+    <meta property="og:description" content="Engineering mathematically precise 3D spatial geometry for Investment Memorandums, Prime Developments, and Business Improvement Districts (BIDs).">
+    <meta property="og:image" content="https://www.lancerpress.com/heading.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,25 +37,35 @@
         .masthead h1 { font-family: var(--font-headline); font-weight: 800; font-size: 3.5rem; line-height: 1; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 0 20px; }
         .meta-bar { width: 100%; display: flex; justify-content: space-between; border-top: 1px solid var(--ink); border-bottom: 3px solid var(--ink); padding: 8px 0; font-family: var(--font-sans); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
         .meta-bar span { display: block; }
-        .lead-story { width: 100%; max-width: 1100px; padding: 10px 20px; box-sizing: border-box; margin-bottom: 20px; }
-        .lead-story h2 { font-family: var(--font-headline); font-size: 2.8rem; font-weight: 400; margin: 0 0 10px 0; line-height: 1.2; text-align: left; }
-        .lead-story p { font-size: 1.25rem; color: var(--ink-light); margin: 0 0 40px 0; text-align: justify; text-justify: inter-word; }
+        
+        .chapter-container { width: 100%; max-width: 1100px; padding: 10px 20px; box-sizing: border-box; margin-bottom: 40px; }
+        .chapter-title { font-family: var(--font-headline); font-size: 2.8rem; font-weight: 400; margin: 0 0 20px 0; line-height: 1.2; text-align: left; border-top: 3px solid var(--ink); padding-top: 20px; }
+        .lead-text { font-size: 1.25rem; color: var(--ink-light); margin: 0 0 40px 0; text-align: justify; text-justify: inter-word; }
+        
         .hero-img { width: 100%; height: auto; border: 1px solid var(--ink); display: block; }
         .image-caption { font-family: var(--font-sans); font-size: 0.75rem; color: var(--ink-light); text-align: right; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
-        .broadsheet-grid { max-width: 1100px; width: 100%; padding: 0 20px 80px 20px; box-sizing: border-box; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .section-break { grid-column: 1 / -1; text-align: left; font-family: var(--font-headline); font-size: 2.8rem; font-weight: 400; line-height: 1.2; border-top: 3px solid var(--ink); padding-top: 20px; margin: 10px 0 10px 0; }
-        .article { display: flex; flex-direction: column; }
-        .article-kicker { font-family: var(--font-sans); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--ink-light); margin-bottom: 10px; display: block; border-top: 2px solid var(--ink); padding-top: 10px; }
-        .article-title { font-family: var(--font-headline); font-size: 1.8rem; font-weight: 600; margin: 0 0 10px 0; line-height: 1.2; }
-        .article-body { font-size: 1.05rem; color: var(--ink-light); margin: 0 0 10px 0; text-align: justify; }
-        .article-img { width: 100%; height: auto; border: 1px solid var(--hairline); margin-top: auto; }
-        .frameless { border: none !important; }
-        .article-full { grid-column: 1 / -1; padding-top: 10px; }
+        
+        /* 4 Pillars Grid (Kept CSS class names for stability) */
+        .pillar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .pillar-card { display: flex; flex-direction: column; }
+        .pillar-kicker { font-family: var(--font-sans); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--ink-light); margin-bottom: 10px; display: block; border-top: 2px solid var(--ink); padding-top: 10px; }
+        .pillar-title { font-family: var(--font-headline); font-size: 1.8rem; font-weight: 600; margin: 0 0 10px 0; line-height: 1.2; }
+        .pillar-body { font-size: 1.05rem; color: var(--ink-light); margin: 0 0 15px 0; text-align: justify; }
+        .pillar-img { width: 100%; height: auto; border: 1px solid var(--hairline); margin-top: auto; }
+        
         .diptych { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        /* Lightbox Interactivity */
+        .zoomable { cursor: zoom-in; transition: transform 0.2s ease; }
+        .zoomable:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(24, 24, 24, 0.95); align-items: center; justify-content: center; padding: 40px; box-sizing: border-box; cursor: zoom-out; }
+        .lightbox img { max-width: 100%; max-height: 100%; border: 2px solid var(--hairline); box-shadow: 0 0 30px rgba(0,0,0,0.8); }
+
         .studio-availability { width: 100%; max-width: 1100px; border-top: 4px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 20px 20px; box-sizing: border-box; }
         .availability-content { width: 100%; }
         .studio-availability h2 { font-family: var(--font-headline); font-size: 2.8rem; font-weight: 400; margin: 0 0 20px 0; line-height: 1.2; }
         .studio-availability p { font-family: var(--font-body); font-size: 1.1rem; color: var(--ink-light); margin: 0 0 10px 0; text-align: justify; text-justify: inter-word; }
+        
         .colophon { width: 100%; max-width: 1100px; padding: 30px 20px 60px 20px; box-sizing: border-box; }
         .colophon-grid { display: grid; grid-template-columns: 1fr 1.2fr 2fr; gap: 20px; border-top: 1px solid var(--hairline); padding-top: 20px; }
         .colophon-brand { display: flex; align-items: center; }
@@ -64,23 +74,27 @@
         .colophon p { font-family: var(--font-sans); font-size: 0.65rem; color: var(--ink-light); text-transform: uppercase; letter-spacing: 1px; line-height: 1.5; margin: 0; }
         .colophon-details { text-align: left; }
         .colophon-legal { text-align: right; }
+        
         @media (max-width: 768px) {
             .publisher-seal { width: 2.5rem; height: 2.5rem; }
             .seal-text { font-size: 16px; }
             .masthead h1 { font-size: 2.5rem; margin-left: 15px; }
             .meta-bar { font-size: 0.6rem; }
             .meta-bar span:nth-child(2) { display: none; }
-            .broadsheet-grid { grid-template-columns: 1fr; gap: 40px; }
+            .pillar-grid { grid-template-columns: 1fr; gap: 40px; }
             .diptych { grid-template-columns: 1fr; }
-            .lead-story h2 { font-size: 2rem; }
+            .chapter-title { font-size: 2rem; }
             .colophon-grid { grid-template-columns: 1fr; text-align: center; gap: 15px; }
             .colophon-brand { justify-content: center; }
             .colophon-details, .colophon-legal { text-align: center; }
-            .studio-availability p { text-align: left; }
         }
     </style>
 </head>
 <body>
+
+    <div id="lightbox" class="lightbox">
+        <img id="lightbox-img" src="" alt="Expanded View">
+    </div>
 
     <header class="masthead">
         <div class="brand-lockup">
@@ -94,143 +108,98 @@
         </div>
         
         <div class="meta-bar">
-            <span>The Spatial Translation Engine</span>
-            <span>Cartography & Architecture</span>
-            <span>London & Belgrade</span>
+            <span>Real Estate</span>
+            <span>Bespoke Vector Cartography</span>
+            <span>London</span>
         </div>
     </header>
 
-   <section class="lead-story">
-        <h2>Bridging Cartography and Architecture</h2>
-        <p style="margin-bottom: 15px;">We built a proprietary spatial engine to solve two expensive bottlenecks in the built environment: the messy CAD data architects are forced to clean, and the flat, disconnected maps marketing agencies use to sell properties.</p>
-        
-        <ul style="font-size: 1.15rem; color: var(--ink-light); margin: 0 0 40px 0; padding-left: 20px; line-height: 1.8;">
-            <li><strong>For Architects:</strong> Automating OS data extraction to deliver instant, perfect vector voids.</li>
-            <li><strong>For Agencies:</strong> Injecting native 2.5D architectural geometry into editorial-grade map libraries.</li>
-            <li>Eliminating days of manual tracing in CAD and Adobe Illustrator.</li>
-            <li>Delivering the fully layered, mathematically embedded source files.</li>
-        </ul>
+    <section class="chapter-container">
+        <h2 style="font-family: var(--font-headline); font-size: 2.8rem; font-weight: 400; margin: 0 0 10px 0; line-height: 1.2;">Spatial folios for Real Estate and BIDs</h2>
+        <p class="lead-text">Lancer Press engineers spatial folios with the uncompromising precision required by the prime property sector. By fusing the mathematical speed of our proprietary spatial engine with meticulous manual curation, we deliver pure vector, 3D architectural masterplates designed to visually dominate investment memorandums and boardroom pitches.</p>
         
         <figure style="margin: 0;">
-            <img src="image1.png" alt="Hero Masterplan" class="hero-img">
-            <figcaption class="image-caption">Fig 1. Edge-to-Edge Masterplan Extraction & 2.5D Injection</figcaption>
+            <img src="heading.png" alt="Eastern City Partnership 3D Architectural Masterplate" class="hero-img zoomable">
+            <figcaption class="image-caption">Fig 1. Native 3D Masterplate Extraction for the Eastern City</figcaption>
         </figure>
     </section>
 
-    <main class="broadsheet-grid">
-
-        <div class="section-break">The Two Pillars</div>
-
-        <article class="article">
-            <span class="article-kicker">For Architecture Studios</span>
-            <h3 class="article-title">Cartography for Architects</h3>
-            
-            <p class="article-body">Design technology teams and junior architects often spend days manually formatting and layering complex OS data to build workable context models.</p>
-            
-            <p class="article-body">Lancer Press acts as the translator between the geospatial globe and your local CAD grid. Our engine automatically ingests heavy spatial datasets, aligns the topology, and outputs a perfectly structured, legally compliant vector void.</p>
-            
-            <p class="article-body">We eliminate the manual conversion process entirely. We deliver a pristine foundation, allowing your studio to drop 3D models straight into the site on day one.</p>
-            
-            <img src="image-void.png" alt="Automated OS Vector Void" class="article-img">
-        </article>
-
-        <article class="article">
-            <span class="article-kicker">For Creative Agencies</span>
-            <h3 class="article-title">Architecture for Cartographers</h3>
-            
-            <p class="article-body">Standard property maps float pixel-based 3D renders onto flat, disconnected 2D backgrounds. The result is visual noise that dilutes the prestige of the asset.</p>
-            
-            <p class="article-body">We engineer native 2.5D masterplans. By manually tracing the lit and shadowed facets of your building in axonometric projection, we embed the architect's pure structural vision directly into the global grid.</p>
-            
-            <p class="article-body">Whether deployed by a developer or a lead creative agency, you receive an editorial-grade, FOGRA47-calibrated map library that frames your development as the absolute center of the market.</p>
-            
-            <img src="image-injection.png" alt="Native 2.5D Masterplan Injection" class="article-img">
-        </article>        <div class="section-break">The Methodology</div>
-
-        <article class="article">
-            <span class="article-kicker">Phase 01 // The Reconnaissance</span>
-            <h3 class="article-title">Location Intelligence</h3>
-            <p class="article-body">We do not rely on automated map downloads. Every mandate begins with an intense period of locational reconnaissance. We spend up to a week manually investigating and authoring the exact geometry of your site, node by node, in spatial editors before our rendering engine is even powered on.</p>
-            <img src="image10.png" alt="Location Intelligence Reconnaissance" class="article-img frameless">
-        </article>
-
-        <article class="article">
-            <span class="article-kicker">Phase 02 // The Integration</span>
-            <h3 class="article-title">Numeric Art</h3>
-            <p class="article-body">Most property maps overlay pixel-based 3D renders onto flat 2D backgrounds, resulting in disconnected imagery. Our hybrid process is entirely native. We mathematically embed true 2.5D axonometric geometry directly into the 2D street grid, creating a continuous, infinitely scalable vector masterpiece.</p>
-            <img src="image11.png" alt="Numeric Art Vector Lines" class="article-img frameless">
-        </article>
+    <section class="chapter-container">
+        <div class="chapter-title">Strategic Applications</div>
         
-        <div class="section-break">The Four-Tier Architecture</div>
-
-        <article class="article">
-            <span class="article-kicker">Level 1 // The Hero Asset</span>
-            <h3 class="article-title">Bespoke 2.5D Geometry</h3>
-            <p class="article-body">Your development commands the absolute center of the canvas. We manually trace the specific lit and shadowed architectural facets of your building in axonometric projection, forcing it to physically rise off the page.</p>
-            <img src="image2.png" alt="Level 1 Geometry" class="article-img">
-        </article>
-
-        <article class="article">
-            <span class="article-kicker">Level 2 // The Plinth</span>
-            <h3 class="article-title">Custom 2D Context</h3>
-            <p class="article-body">A hero asset cannot float in empty space. The immediate accompanying structures, secondary phases, and complex site footprints are custom-traced and brand-calibrated to frame your property flawlessly within its local grid.</p>
-            <img src="image3.png" alt="Level 2 Plinth" class="article-img">
-        </article>
-
-        <article class="article">
-            <span class="article-kicker">Level 3 // The Anchors</span>
-            <h3 class="article-title">Curated Targets</h3>
-            <p class="article-body">We manually highlight the neighborhood features that drive your property's valuation. Top-tier schools, heritage sites, and private wealth nodes are custom-drawn as heavy 2D geometry to visually prove the area's absolute prestige.</p>
-            <img src="image4.png" alt="Level 3 Anchors" class="article-img">
-        </article>
-
-        <article class="article">
-            <span class="article-kicker">Level 4 // The Canvas</span>
-            <h3 class="article-title">Automated Purge</h3>
-            <p class="article-body">Standard maps are cluttered with municipal noise. Our proprietary C++ engine ruthlessly purges surface parking and low-value zoning, generating a beautifully muted, flat 2D architectural background for your Hero Asset.</p>
-            <img src="image5.png" alt="Level 4 Canvas" class="article-img">
-        </article>
-
-<div class="section-break">The Complete Asset Suite</div>
-
-        <article class="article article-full">
-            <span class="article-kicker">The Configuration</span>
-            <h3 class="article-title">Studio Editions & Branding</h3>
-            <p class="article-body" style="max-width: 100%;">Every folio can be rendered in one of our standard, highly curated Studio Editions.</p>
-            <p class="article-body" style="max-width: 100%;">If your development requires strict visual alignment with your existing corporate brand guidelines or marketing collateral, we can engineer a bespoke, brand-matched colorway for an additional premium.</p>
+        <div class="pillar-grid">
             
-            <div class="diptych">
-                <figure style="margin: 0;">
-                    <img src="image6.png" alt="Light Edition" class="article-img">
-                    <figcaption class="image-caption">The Print Master (Vellum)</figcaption>
-                </figure>
-                <figure style="margin: 0;">
-                    <img src="image7.png" alt="Dark Edition" class="article-img">
-                    <figcaption class="image-caption">The Digital Display (Ember)</figcaption>
-                </figure>
-            </div>
-        </article>
+            <article class="pillar-card">
+                <span class="pillar-kicker">01 // The Deal Makers</span>
+                <h3 class="pillar-title">Capital Markets & Proposals</h3>
+                <p class="pillar-body">When marketing a prime commercial asset, flat maps dilute the valuation. We engineer pure vector 3D masterplates that visually prove the absolute spatial dominance of a £100M+ commercial asset to foreign buyers and institutional investors within high-end pitch books.</p>
+                <img src="capital_markets.png" alt="Investment Memorandum Masterplate" class="pillar-img zoomable">
+            </article>
 
-        <article class="article">
-            <span class="article-kicker">The Delivery</span>
-            <h3 class="article-title">Asset Suite</h3>
-            <p class="article-body">You receive a fully loaded, pre-press asset library. Every Edition is delivered across a spectrum of architectural scales, provided in both Fully Labeled and Clean states. All files are FOGRA47-calibrated for heavy uncoated print.</p>
-            <img src="image8.png" alt="Delivery Assets" class="article-img frameless">
-        </article>
+            <article class="pillar-card">
+                <span class="pillar-kicker">02 // The Builders</span>
+                <h3 class="pillar-title">Prime Developments</h3>
+                <p class="pillar-body">Designed for off-plan marketing brochures, hoarding, and luxury leasing folios. We force your new architectural vision to physically rise off the page against a muted corporate canvas, definitively proving its exact relationship to local wealth nodes and transit anchors.</p>
+                <img src="prime_developments.png" alt="Prime Development 3D Masterplate" class="pillar-img zoomable">
+            </article>
 
-        <article class="article">
-            <span class="article-kicker">The Engine</span>
-            <h3 class="article-title">Hybrid Architecture</h3>
-            <p class="article-body">We bypass standard design software, combining the bespoke precision of an artisanal design studio with the raw mathematical processing power of custom C++ engineering to extract perfect vectors from public spatial data.</p>
-            <img src="image9.png" alt="C++ Engine" class="article-img frameless">
-        </article>
+            <article class="pillar-card">
+                <span class="pillar-kicker">03 // The Lobbyists</span>
+                <h3 class="pillar-title">Business Improvement Districts</h3>
+                <p class="pillar-body">A digital directory cannot sell a territory. We engineer the definitive spatial identity of your district for public realm strategy reports and street-level wayfinding—visually proving pedestrian permeability, retail density, and exact architectural scale.</p>
+                <img src="bid.png" alt="Business Improvement District Placemaking Folio" class="pillar-img zoomable">
+            </article>
 
-    </main>
+            <article class="pillar-card">
+                <span class="pillar-kicker">04 // The Landlords</span>
+                <h3 class="pillar-title">Masterplanned Estates</h3>
+                <p class="pillar-body">Built for estate management boards and multi-phase regeneration projects. We navigate the massive spatial context of sprawling campuses, providing a highly curated, infinitely scalable mathematical plinth that frames your entire estate flawlessly.</p>
+                <img src="masterplanned_estates.png" alt="Masterplanned Estate Context Map" class="pillar-img zoomable">
+            </article>
+
+        </div>
+    </section>
+
+    <section class="chapter-container">
+        <div class="chapter-title">The Studio Editions</div>
+        <p class="lead-text" style="margin-bottom: 20px;">Every folio is delivered across a spectrum of architectural scales and can be rendered in one of our heavily curated Studio Editions. If your development requires strict visual alignment with existing marketing collateral, we engineer bespoke, brand-matched colorways for your specific campaign.</p>
+        
+        <div class="diptych">
+            <figure style="margin: 0;">
+                <img src="light.png" alt="Light Edition" class="hero-img zoomable">
+                <figcaption class="image-caption">The Print Master (Vellum)</figcaption>
+            </figure>
+            <figure style="margin: 0;">
+                <img src="dark.png" alt="Dark Edition" class="hero-img zoomable">
+                <figcaption class="image-caption">The Digital Display (Ember)</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="chapter-container">
+        <div class="chapter-title">The Engine & The Artisan</div>
+        
+        <div class="pillar-grid">
+            <article class="pillar-card">
+                <span class="pillar-kicker">Phase 01</span>
+                <h3 class="pillar-title">Location Intelligence</h3>
+                <p class="pillar-body">We do not rely on automated map downloads. Every mandate begins with an intense period of locational reconnaissance. We spend up to a week manually investigating and authoring the exact geometry of your site, node by node, before our proprietary rendering engine is ever engaged.</p>
+                <img src="location_intelligence.png" alt="Location Intelligence Reconnaissance" class="pillar-img zoomable">
+            </article>
+
+            <article class="pillar-card">
+                <span class="pillar-kicker">Phase 02</span>
+                <h3 class="pillar-title">Hybrid Extraction</h3>
+                <p class="pillar-body">Fusing the bespoke precision of an artisanal design studio with raw computational processing. We mathematically embed true 3D axonometric geometry directly into the street grid, creating a continuous, infinitely scalable vector masterpiece optimized for boardroom print.</p>
+                <img src="extraction.png" alt="Hybrid Extraction Vector Lines" class="pillar-img zoomable">
+            </article>
+        </div>
+    </section>
 
     <section class="studio-availability">
         <div class="availability-content">
             <h2>Initiate a Commission</h2>
-            <p>Whether your studio requires an automated upstream CAD void delivered within hours, or your agency requires a fully engineered downstream 2.5D map library for a luxury campaign, direct all inquiries to our protocol below.</p>
+            <p>Whether you require a pure vector 3D masterplate for an upcoming £100M+ capital markets pitch, or the definitive spatial identity for a Business Improvement District, direct all confidential inquiries to our protocol below.</p>
             <div style="text-align: right; margin-top: 20px;">
                 <span style="font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--ink); border-bottom: 2px solid var(--ink); padding-bottom: 5px; user-select: all;">
                     studio@lancerpress.com
@@ -257,6 +226,25 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const zoomables = document.querySelectorAll('.zoomable');
+
+            zoomables.forEach(img => {
+                img.addEventListener('click', function() {
+                    lightboxImg.src = this.src;
+                    lightbox.style.display = 'flex';
+                });
+            });
+
+            lightbox.addEventListener('click', function() {
+                lightbox.style.display = 'none';
+            });
+        });
+    </script>
 
 </body>
 </html>
