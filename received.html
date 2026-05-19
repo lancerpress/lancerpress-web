@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandate Received | Lancer Press</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --lp-green: #0F292C; --lp-cream: #f0ead6; --lp-accent: #d3cba7; --lp-grey: #7a827d; --font-display: 'Playfair Display', Didot, serif; --font-ui: 'Inter', -apple-system, sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-display); background-color: var(--lp-green); color: var(--lp-cream); line-height: 1.6; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        .global-nav { position: fixed; top: 0; width: 100%; height: 115px; background-color: var(--lp-green); display: flex; justify-content: space-between; align-items: center; padding: 0 40px; box-sizing: border-box; z-index: 1000; border-bottom: 1px solid rgba(240, 234, 214, 0.1); }
+        .nav-group { display: flex; align-items: center; gap: 40px; flex: 1; }
+        .nav-group.right { justify-content: flex-end; }
+        .nav-center { flex: 0 0 auto; display: flex; flex-direction: column; justify-content: center; }
+        .nav-logo { height: 40px; width: auto; display: block; margin: 0 auto; }
+        .nav-slogan { font-family: var(--font-ui); font-size: 0.55rem; text-transform: uppercase; letter-spacing: 5px; color: var(--lp-grey); margin-top: 10px; display: block; text-align: center; font-weight: 400; }
+        
+        .global-nav a { font-family: var(--font-ui); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--lp-cream); text-decoration: none; transition: color 0.3s; }
+        .global-nav a.nav-brand-link:hover .nav-slogan { color: var(--lp-accent); transition: color 0.3s; }
+        .global-nav a:hover, .global-nav a.active { color: var(--lp-accent); }
+        
+        main { padding-top: 115px; flex: 1; display: flex; align-items: center; justify-content: center; }
+        .success-container { max-width: 700px; padding: 60px 40px; text-align: center; }
+        
+        h1 { font-size: 4rem; font-weight: 400; line-height: 1.1; margin: 0 0 20px 0; letter-spacing: -1px; }
+        p.lead { font-family: var(--font-ui); font-size: 1.1rem; font-weight: 300; line-height: 1.8; color: var(--lp-cream); margin: 0 0 40px 0; }
+        .kicker { font-family: var(--font-ui); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--lp-grey); display: block; margin-bottom: 15px; }
+        
+        .btn-return { background: transparent; border: 1px solid var(--lp-cream); color: var(--lp-cream); font-family: var(--font-ui); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; padding: 18px 36px; cursor: pointer; transition: all 0.3s ease; display: inline-block; text-decoration: none; }
+        .btn-return:hover { background: var(--lp-cream); color: var(--lp-green); }
+
+        /* Footer CSS */
+        footer { margin-top: auto; }
+        .footer-nav-container { max-width: 1400px; margin: 0 auto 60px auto; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(240, 234, 214, 0.1); padding-bottom: 40px; }
+        .footer-link { font-family: var(--font-ui); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--lp-cream); text-decoration: none; transition: all 0.3s ease; }
+        .footer-link:hover { color: var(--lp-accent); }
+        .footer-btn { border: 1px solid var(--lp-cream); padding: 12px 24px; }
+        .footer-btn:hover { background: var(--lp-cream); color: var(--lp-green) !important; }
+        
+        @media (max-width: 1024px) { .nav-group { display: none; } .nav-center { flex: 1; } h1 { font-size: 3rem; } }
+    </style>
+</head>
+<body>
+
+    <header class="global-nav">
+        <nav class="nav-group left">
+            <a href="index.html">Mission</a>
+            <a href="deployments.html">Deployments</a>
+        </nav>
+        <div class="nav-center">
+            <a href="index.html" class="nav-brand-link" style="text-decoration: none;">
+                <img src="lancer_press_logo.png" alt="Lancer Press Logo" class="nav-logo">
+                <span class="nav-slogan">The Geometry of Prime Real Estate.</span>
+            </a>
+        </div>
+        <nav class="nav-group right">
+            <a href="engine.html">The Engine</a>
+            <a href="studio.html">Studio</a>
+            <a href="enquire.html" class="btn-enquire" style="border: none; padding: 0;">Enquire</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="success-container">
+            <span class="kicker">Transmission Complete</span>
+            <h1>Mandate Received.</h1>
+            <p class="lead">Your spatial requirements have been securely transmitted to the studio. A director will review the coordinates and contact you shortly to confirm the prepress protocol and execute necessary NDAs.</p>
+            <a href="index.html" class="btn-return">Return to Mission</a>
+        </section>
+    </main>
+
+    <footer style="background-color: var(--lp-green); padding: 80px 40px 60px; font-family: var(--font-ui);">
+        <div class="footer-nav-container">
+            <div style="display: flex; gap: 40px; flex: 1; align-items: center;">
+                <a href="index.html" class="footer-link">Mission</a>
+                <a href="deployments.html" class="footer-link">Deployments</a>
+            </div>
+            <div style="flex: 0 0 auto; text-align: center;">
+                <a href="https://www.linkedin.com/company/lancer-press" target="_blank" class="footer-link" style="color: var(--lp-grey); display: inline-flex; align-items: center; justify-content: center;" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+            <div style="display: flex; gap: 40px; flex: 1; justify-content: flex-end; align-items: center;">
+                <a href="engine.html" class="footer-link">The Engine</a>
+                <a href="studio.html" class="footer-link">Studio</a>
+                <a href="enquire.html" class="footer-link" style="color: var(--lp-accent);">Enquire</a>
+            </div>
+        </div>
+
+        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: center;">
+            <div><img src="lancer_press_logo.png" alt="Lancer Press Seal" style="height: 80px; display: block;"></div>
+            <div style="text-align: center;"><p style="font-size: 0.75rem; color: var(--lp-accent); text-transform: uppercase; letter-spacing: 1px; margin: 0; line-height: 1.8;">Spatial Analytics & Intelligence Folios<br>Proprietary Cartographic Engine<br>Engineered for the prime property sector.</p></div>
+            <div style="text-align: right;"><p style="font-size: 0.75rem; color: var(--lp-accent); text-transform: uppercase; letter-spacing: 1px; margin: 0; line-height: 1.8;">Registered in England & Wales (No. 16953195).<br>© 2026 Lancer Press Ltd. All rights reserved.</p></div>
+        </div>
+    </footer>
+</body>
+</html>
